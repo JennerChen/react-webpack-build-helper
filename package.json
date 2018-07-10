@@ -1,0 +1,48 @@
+{
+  "name": "react-webpack-build-helper",
+  "version": "1.0.0",
+  "main": "build/react-webpack-build-helper.js",
+  "repository": "https://github.com/JennerChen/react-webpack-build-helper.git",
+  "author": "zhangqing <zhangqing@suiyi.com.cn>",
+  "license": "MIT",
+  "scripts": {
+    "precommit": "lint-staged",
+    "clean:node_modules": "rimraf ./node_modules",
+    "build": "rollup -c ./scripts/rollup.config.js"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.3",
+    "prettier": "^1.10.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-filesize": "^2.0.0",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-license": "^0.7.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "styled-components": "^3.3.3"
+  },
+  "dependencies": {
+    "anser": "^1.4.7",
+    "html-entities": "^1.2.1",
+    "strip-ansi": "^4.0.0"
+  }
+}
