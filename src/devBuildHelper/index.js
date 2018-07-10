@@ -94,7 +94,7 @@ class BuildHelper {
         typeof console.error === "function"
       ) {
         for (let i = 0; i < errors.length; i++) {
-          console.warn(stripAnsi(errors[i]));
+          console.error(stripAnsi(errors[i]));
         }
       }
     }

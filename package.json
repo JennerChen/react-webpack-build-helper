@@ -1,6 +1,6 @@
 {
   "name": "react-webpack-build-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "build/react-webpack-build-helper.js",
   "repository": "https://github.com/JennerChen/react-webpack-build-helper.git",
   "author": "zhangqing <zhangqing@suiyi.com.cn>",
