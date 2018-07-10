@@ -1,6 +1,6 @@
 {
   "name": "react-webpack-build-helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "build/react-webpack-build-helper.js",
   "repository": "https://github.com/JennerChen/react-webpack-build-helper.git",
   "author": "zhangqing <zhangqing@suiyi.com.cn>",
@@ -43,6 +43,9 @@
   "dependencies": {
     "anser": "^1.4.7",
     "html-entities": "^1.2.1",
-    "strip-ansi": "^4.0.0"
+    "strip-ansi": "^4.0.0",
+    "react": "*",
+    "react-dom":"*",
+    "styled-components":"*"
   }
 }
