@@ -22,9 +22,10 @@ const ConfigPanel = styled.div`
   background-color: #efefef;
   border-radius: 5px;
   padding: 10px;
-  width: 80px;
+  width: 90px;
   font-size: 12px;
   box-shadow: 0px 2px 2px 0px rgba(128, 128, 128, 0.6);
+  box-sizing: border-box;
 `;
 
 const ClickBg = styled.div`
