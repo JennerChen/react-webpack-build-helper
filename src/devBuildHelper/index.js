@@ -14,6 +14,10 @@ const DefaultSetting = {
 const overlayStyle =
   "position:fixed;width: 100%;height:100%;z-index:2100000000;left:0;top:0;text-align:center;background-color:rgba(255,255,255,.8);";
 class BuildHelper {
+  existErrorLog = false;
+
+  existWarningLog = false;
+
   constructor() {
     this.isFirstBuild = true;
     this.initBuildIsError = false;
@@ -56,12 +60,14 @@ class BuildHelper {
     if (this.initBuildIsError) {
       window.location.reload();
     }
-    this.dismissOverlays();
-    this.clearConsole();
 
     if (this.isFirstBuild) {
       this.isFirstBuild = false;
     } else {
+      this.dismissOverlays();
+      if (this.existWarningLog || this.existErrorLog) {
+        this.clearConsole();
+      }
       this.showOutDate();
 
       this.checkAutoRefresh();
@@ -71,13 +77,12 @@ class BuildHelper {
   }
 
   showErrors(errors) {
-    this.dismissOverlays();
-    this.clearConsole();
-
     if (this.isFirstBuild) {
       this.isFirstBuild = false;
       this.initBuildIsError = true;
     } else {
+      this.dismissOverlays();
+      this.clearConsole();
       this.showOutDate();
       if (!this.config.showErrors) {
         this.checkAutoRefresh();
@@ -93,6 +98,7 @@ class BuildHelper {
         typeof console !== "undefined" &&
         typeof console.error === "function"
       ) {
+        this.existErrorLog = true;
         for (let i = 0; i < errors.length; i++) {
           console.error(stripAnsi(errors[i]));
         }
@@ -105,12 +111,12 @@ class BuildHelper {
     if (this.initBuildIsError) {
       window.location.reload();
     }
-    this.dismissOverlays();
-    this.clearConsole();
 
     if (this.isFirstBuild) {
       this.isFirstBuild = false;
     } else {
+      this.dismissOverlays();
+      this.clearConsole();
       this.showOutDate();
       if (!this.config.showWarnings) {
         this.checkAutoRefresh();
@@ -126,6 +132,7 @@ class BuildHelper {
         typeof console !== "undefined" &&
         typeof console.warn === "function"
       ) {
+        this.existWarningLog = true;
         for (let i = 0; i < warnings.length; i++) {
           if (i === 5) {
             console.warn(
